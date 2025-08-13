@@ -1,0 +1,8 @@
+*
+!.gitignore
+
+!ASNR-MICCAI-BraTS2023-GLI-Challenge-TrainingData
+ASNR-MICCAI-BraTS2023-GLI-Challenge-TrainingData/*
+
+!ASNR-MICCAI-BraTS2023-GLI-Challenge-ValidationData
+ASNR-MICCAI-BraTS2023-GLI-Challenge-ValidationData/*
