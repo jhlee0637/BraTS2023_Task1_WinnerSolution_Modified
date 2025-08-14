@@ -1,3 +1,8 @@
+'''
+    Modified by Jehee Lee
+        1) parameter 'outputdir' will be loaded
+        2) 'get_loader' uses 'outputdir' to find the csv file
+'''
 import os
 import torch
 import numpy as np
@@ -22,9 +27,11 @@ from src.utils.gaussian_noise_tumour import GaussianNoiseTumour
 def get_loader(args): 
     NUM_WORKERS = int(args.num_workers)
     if args.csv_path == "":
-        for file_name in os.listdir(f"../../Checkpoint/{args.logdir}"):
+        #for file_name in os.listdir(f"../../Checkpoint/{args.logdir}"): # deleted
+        for file_name in os.listdir(f"{args.outputdir}/{args.logdir}"): # added
             if file_name.endswith("csv"):
-                CSV_PATH = os.path.join(f"../../Checkpoint/{args.logdir}", file_name)
+                #CSV_PATH = os.path.join(f"../../Checkpoint/{args.logdir}", file_name) # deleted
+                CSV_PATH = os.path.join(f"{args.outputdir}/{args.logdir}", file_name) # added
     else:
         CSV_PATH = args.csv_path
     print(f"CSV_PATH: {CSV_PATH}")
